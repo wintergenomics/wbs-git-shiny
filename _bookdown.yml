@@ -1,0 +1,16 @@
+book_filename: "Winter School"
+language:
+  ui:
+    chapter_name: "Capítulo "
+delete_merged_file: true
+site: "bookdown::bookdown_site"
+output_dir: docs
+new_session: yes
+rmd_files: ["index.Rmd",
+    # Parte 1: Git y GitHub
+    "01-git-github.Rmd",
+    # Parte 2: Documentación en R
+    "02-docs-R.Rmd",
+    "03-rmarkdown.Rmd",
+    # Parte 3: Creación de Apps
+    "04-shiny.Rmd"]

@@ -1,0 +1,1170 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Capítulo 3 Reportes con R Markdown | Winter Bioinformatics School</title>
+  <meta name="description" content="Capítulo 3 Reportes con R Markdown | Winter Bioinformatics School" />
+  <meta name="generator" content="bookdown 0.24 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Capítulo 3 Reportes con R Markdown | Winter Bioinformatics School" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  <meta name="github-repo" content="wintergenomics/wbs-git-shiny" />
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Capítulo 3 Reportes con R Markdown | Winter Bioinformatics School" />
+  
+  
+  
+
+
+
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="introducción-a-la-documentación.html"/>
+<link rel="next" href="apps-con-shiny.html"/>
+<script src="libs/header-attrs-2.11/header-attrs.js"></script>
+<script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/fuse.js@6.4.6/dist/fuse.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-clipboard.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+<link href="libs/anchor-sections-1.0.1/anchor-sections.css" rel="stylesheet" />
+<script src="libs/anchor-sections-1.0.1/anchor-sections.js"></script>
+<script src="libs/kePrint-0.0.1/kePrint.js"></script>
+<link href="libs/lightable-0.0.1/lightable.css" rel="stylesheet" />
+<link href="libs/tabwid-1.0.0/tabwid.css" rel="stylesheet" />
+
+
+<style type="text/css">
+pre > code.sourceCode { white-space: pre; position: relative; }
+pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
+pre > code.sourceCode > span:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode > span { color: inherit; text-decoration: inherit; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+pre > code.sourceCode { white-space: pre-wrap; }
+pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
+}
+pre.numberSource code
+  { counter-reset: source-line 0; }
+pre.numberSource code > span
+  { position: relative; left: -4em; counter-increment: source-line; }
+pre.numberSource code > span > a:first-child::before
+  { content: counter(source-line);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {   }
+@media screen {
+pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i>Información del curso</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#formato-del-curso"><i class="fa fa-check"></i>Formato del curso</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#quién-es-nuestra-audiencia"><i class="fa fa-check"></i>¿Quién es nuestra audiencia?</a></li>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#pre-requisitos"><i class="fa fa-check"></i>Pre-requisitos</a>
+<ul>
+<li class="chapter" data-level="" data-path="index.html"><a href="index.html#instalación-de-r-y-rstudio"><i class="fa fa-check"></i>Instalación de R y RStudio</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="1" data-path="git.html"><a href="git.html"><i class="fa fa-check"></i><b>1</b> Git</a>
+<ul>
+<li class="chapter" data-level="1.1" data-path="git.html"><a href="git.html#instalación-de-git"><i class="fa fa-check"></i><b>1.1</b> Instalación de Git</a>
+<ul>
+<li class="chapter" data-level="1.1.1" data-path="git.html"><a href="git.html#linux"><i class="fa fa-check"></i><b>1.1.1</b> Linux</a></li>
+<li class="chapter" data-level="1.1.2" data-path="git.html"><a href="git.html#macos"><i class="fa fa-check"></i><b>1.1.2</b> macOS</a></li>
+<li class="chapter" data-level="1.1.3" data-path="git.html"><a href="git.html#windows"><i class="fa fa-check"></i><b>1.1.3</b> Windows</a></li>
+</ul></li>
+<li class="chapter" data-level="1.2" data-path="git.html"><a href="git.html#trabajando-con-git-en-la-terminal"><i class="fa fa-check"></i><b>1.2</b> Trabajando con Git en la terminal</a>
+<ul>
+<li class="chapter" data-level="1.2.1" data-path="git.html"><a href="git.html#version-de-git"><i class="fa fa-check"></i><b>1.2.1</b> Version de Git</a></li>
+<li class="chapter" data-level="1.2.2" data-path="git.html"><a href="git.html#editar-valores-de-configuración"><i class="fa fa-check"></i><b>1.2.2</b> Editar valores de configuración</a></li>
+<li class="chapter" data-level="1.2.3" data-path="git.html"><a href="git.html#pidiendo-ayuda"><i class="fa fa-check"></i><b>1.2.3</b> Pidiendo ayuda</a></li>
+<li class="chapter" data-level="1.2.4" data-path="git.html"><a href="git.html#comandos-de-apoyo-para-manejo-de-archivos-desde-terminal"><i class="fa fa-check"></i><b>1.2.4</b> Comandos de apoyo para manejo de archivos desde terminal</a></li>
+</ul></li>
+<li class="chapter" data-level="1.3" data-path="git.html"><a href="git.html#trabajar-con-repositorio"><i class="fa fa-check"></i><b>1.3</b> Trabajar con repositorio</a>
+<ul>
+<li class="chapter" data-level="1.3.1" data-path="git.html"><a href="git.html#iniciar-un-repositorio"><i class="fa fa-check"></i><b>1.3.1</b> Iniciar un repositorio</a></li>
+<li class="chapter" data-level="1.3.2" data-path="git.html"><a href="git.html#revisar-el-estatus-de-un-repositorio"><i class="fa fa-check"></i><b>1.3.2</b> Revisar el estatus de un repositorio</a></li>
+<li class="chapter" data-level="1.3.3" data-path="git.html"><a href="git.html#agregar-archivos"><i class="fa fa-check"></i><b>1.3.3</b> Agregar archivos</a></li>
+<li class="chapter" data-level="1.3.4" data-path="git.html"><a href="git.html#eliminando-archivos-del-área-de-preparación"><i class="fa fa-check"></i><b>1.3.4</b> Eliminando archivos del área de preparación</a></li>
+<li class="chapter" data-level="1.3.5" data-path="git.html"><a href="git.html#agregando-comentarios"><i class="fa fa-check"></i><b>1.3.5</b> Agregando comentarios</a></li>
+</ul></li>
+<li class="chapter" data-level="1.4" data-path="git.html"><a href="git.html#clonar-un-repositorio-de-github"><i class="fa fa-check"></i><b>1.4</b> Clonar un repositorio de GitHub</a>
+<ul>
+<li class="chapter" data-level="1.4.1" data-path="git.html"><a href="git.html#creando-una-rama-branch"><i class="fa fa-check"></i><b>1.4.1</b> Creando una rama (<em>branch</em>)</a></li>
+<li class="chapter" data-level="1.4.2" data-path="git.html"><a href="git.html#mostrar-los-cambios-de-un-repositorio"><i class="fa fa-check"></i><b>1.4.2</b> Mostrar los cambios de un repositorio</a></li>
+<li class="chapter" data-level="1.4.3" data-path="git.html"><a href="git.html#enviar-cambios-a-repositorio-remoto"><i class="fa fa-check"></i><b>1.4.3</b> Enviar cambios a repositorio remoto</a></li>
+<li class="chapter" data-level="1.4.4" data-path="git.html"><a href="git.html#trabajar-sobre-una-rama-branch"><i class="fa fa-check"></i><b>1.4.4</b> Trabajar sobre una rama (<em>branch</em>)</a></li>
+<li class="chapter" data-level="1.4.5" data-path="git.html"><a href="git.html#fusionar-ramas"><i class="fa fa-check"></i><b>1.4.5</b> Fusionar ramas</a></li>
+<li class="chapter" data-level="1.4.6" data-path="git.html"><a href="git.html#eliminar-una-rama"><i class="fa fa-check"></i><b>1.4.6</b> Eliminar una rama</a></li>
+<li class="chapter" data-level="1.4.7" data-path="git.html"><a href="git.html#ver-los-cambios-en-ramas"><i class="fa fa-check"></i><b>1.4.7</b> Ver los cambios en ramas</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="introducción-a-la-documentación.html"><a href="introducción-a-la-documentación.html"><i class="fa fa-check"></i><b>2</b> Introducción a la documentación</a>
+<ul>
+<li class="chapter" data-level="2.1" data-path="introducción-a-la-documentación.html"><a href="introducción-a-la-documentación.html#por-qué-documentar"><i class="fa fa-check"></i><b>2.1</b> ¿Por qué documentar?</a></li>
+<li class="chapter" data-level="2.2" data-path="introducción-a-la-documentación.html"><a href="introducción-a-la-documentación.html#markdown"><i class="fa fa-check"></i><b>2.2</b> <code>Markdown</code></a>
+<ul>
+<li class="chapter" data-level="2.2.1" data-path="introducción-a-la-documentación.html"><a href="introducción-a-la-documentación.html#ventajas-de-aprender-markdown"><i class="fa fa-check"></i><b>2.2.1</b> Ventajas de aprender <code>Markdown</code></a></li>
+</ul></li>
+<li class="chapter" data-level="2.3" data-path="introducción-a-la-documentación.html"><a href="introducción-a-la-documentación.html#r-markdown"><i class="fa fa-check"></i><b>2.3</b> <code>R Markdown</code></a>
+<ul>
+<li class="chapter" data-level="2.3.1" data-path="introducción-a-la-documentación.html"><a href="introducción-a-la-documentación.html#cómo-funciona"><i class="fa fa-check"></i><b>2.3.1</b> ¿Cómo funciona?</a></li>
+<li class="chapter" data-level="2.3.2" data-path="introducción-a-la-documentación.html"><a href="introducción-a-la-documentación.html#para-saber-más"><i class="fa fa-check"></i><b>2.3.2</b> Para saber más…</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html"><i class="fa fa-check"></i><b>3</b> Reportes con <code>R Markdown</code></a>
+<ul>
+<li class="chapter" data-level="3.1" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#texto-con-etiquetas"><i class="fa fa-check"></i><b>3.1</b> Texto con etiquetas</a>
+<ul>
+<li class="chapter" data-level="3.1.1" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#encabezados"><i class="fa fa-check"></i><b>3.1.1</b> Encabezados</a></li>
+<li class="chapter" data-level="3.1.2" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#énfasis-en-texto"><i class="fa fa-check"></i><b>3.1.2</b> Énfasis en texto</a></li>
+<li class="chapter" data-level="3.1.3" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#subíndices-y-superíndices"><i class="fa fa-check"></i><b>3.1.3</b> Subíndices y superíndices</a></li>
+<li class="chapter" data-level="3.1.4" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#espacios-entre-párrafos"><i class="fa fa-check"></i><b>3.1.4</b> Espacios entre párrafos</a></li>
+<li class="chapter" data-level="3.1.5" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#listas"><i class="fa fa-check"></i><b>3.1.5</b> Listas</a></li>
+<li class="chapter" data-level="3.1.6" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#hipervínculos"><i class="fa fa-check"></i><b>3.1.6</b> Hipervínculos</a></li>
+<li class="chapter" data-level="3.1.7" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#figuras"><i class="fa fa-check"></i><b>3.1.7</b> Figuras</a></li>
+<li class="chapter" data-level="3.1.8" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#ecuaciones-matemáticas"><i class="fa fa-check"></i><b>3.1.8</b> Ecuaciones matemáticas</a></li>
+<li class="chapter" data-level="3.1.9" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#comentarios"><i class="fa fa-check"></i><b>3.1.9</b> Comentarios</a></li>
+</ul></li>
+<li class="chapter" data-level="3.2" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#código-en-r-markdown"><i class="fa fa-check"></i><b>3.2</b> Código en R Markdown</a>
+<ul>
+<li class="chapter" data-level="3.2.1" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#configuraciones-de-chunks"><i class="fa fa-check"></i><b>3.2.1</b> Configuraciones de chunks</a></li>
+<li class="chapter" data-level="3.2.2" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#insertar-figuras-con-código"><i class="fa fa-check"></i><b>3.2.2</b> Insertar figuras con código:</a></li>
+<li class="chapter" data-level="3.2.3" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#insertar-gráficos"><i class="fa fa-check"></i><b>3.2.3</b> Insertar gráficos</a></li>
+<li class="chapter" data-level="3.2.4" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#tablas-con-paqueterías-especializadas"><i class="fa fa-check"></i><b>3.2.4</b> Tablas con paqueterías especializadas</a></li>
+</ul></li>
+<li class="chapter" data-level="3.3" data-path="reportes-con-r-markdown.html"><a href="reportes-con-r-markdown.html#sección-de-metadatos-yaml"><i class="fa fa-check"></i><b>3.3</b> Sección de metadatos: YAML</a></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="apps-con-shiny.html"><a href="apps-con-shiny.html"><i class="fa fa-check"></i><b>4</b> Apps con Shiny</a>
+<ul>
+<li class="chapter" data-level="4.1" data-path="apps-con-shiny.html"><a href="apps-con-shiny.html#crear-mi-primera-aplicación"><i class="fa fa-check"></i><b>4.1</b> Crear mi primera aplicación</a>
+<ul>
+<li class="chapter" data-level="4.1.1" data-path="apps-con-shiny.html"><a href="apps-con-shiny.html#agregando-más-parámetros"><i class="fa fa-check"></i><b>4.1.1</b> Agregando más parámetros</a></li>
+<li class="chapter" data-level="4.1.2" data-path="apps-con-shiny.html"><a href="apps-con-shiny.html#etiquetas-para-modificar-texto"><i class="fa fa-check"></i><b>4.1.2</b> Etiquetas para modificar texto</a></li>
+<li class="chapter" data-level="4.1.3" data-path="apps-con-shiny.html"><a href="apps-con-shiny.html#conociendo-paneles"><i class="fa fa-check"></i><b>4.1.3</b> Conociendo paneles</a></li>
+</ul></li>
+<li class="chapter" data-level="4.2" data-path="apps-con-shiny.html"><a href="apps-con-shiny.html#crear-una-aplicación-más-compleja"><i class="fa fa-check"></i><b>4.2</b> Crear una aplicación más compleja</a>
+<ul>
+<li class="chapter" data-level="4.2.1" data-path="apps-con-shiny.html"><a href="apps-con-shiny.html#personalizando-con-temas-de-bslib"><i class="fa fa-check"></i><b>4.2.1</b> Personalizando con temas de bslib</a></li>
+<li class="chapter" data-level="4.2.2" data-path="apps-con-shiny.html"><a href="apps-con-shiny.html#creando-temas-personalizados"><i class="fa fa-check"></i><b>4.2.2</b> Creando temas personalizados</a></li>
+</ul></li>
+</ul></li>
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Winter Bioinformatics School</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="reportes-con-r-markdown" class="section level1" number="3">
+<h1><span class="header-section-number">Capítulo 3</span> Reportes con <code>R Markdown</code></h1>
+<p>Para generar un reporte se debe dar clik en <code>File</code> &gt; <code>New File</code> &gt; <code>R Markdown</code>. Se abrirá una plantilla que muestra la estructura básica de un documento <code>.Rmd</code>: Sección de metadatos escrita en <code>YAML</code>, bloques o <em>chunks</em> de código y texto escrito con etiquetas.</p>
+<div class="sourceCode" id="cb29"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb29-1"><a href="reportes-con-r-markdown.html#cb29-1" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(<span class="st">&quot;img/estructura.png&quot;</span>)</span></code></pre></div>
+<p><img src="img/estructura.png" width="80%" height="80%" style="display: block; margin: auto;" /></p>
+<div id="texto-con-etiquetas" class="section level2" number="3.1">
+<h2><span class="header-section-number">3.1</span> Texto con etiquetas</h2>
+<div id="encabezados" class="section level3" number="3.1.1">
+<h3><span class="header-section-number">3.1.1</span> Encabezados</h3>
+<p>Los encabezados hacen referencia a los títulos y subtítulos que se pueden colocar, existen seis niveles para denotar encabezados. La etiqueta para los encabezados es el símbolo de numeral (#) + espacio.</p>
+<div class="sourceCode" id="cb30"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb30-1"><a href="reportes-con-r-markdown.html#cb30-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Encabezado primer nivel</span></span>
+<span id="cb30-2"><a href="reportes-con-r-markdown.html#cb30-2" aria-hidden="true" tabindex="-1"></a><span class="do">## Encabezado segundo nivel</span></span>
+<span id="cb30-3"><a href="reportes-con-r-markdown.html#cb30-3" aria-hidden="true" tabindex="-1"></a><span class="do">### Encabezado tercer nivel</span></span>
+<span id="cb30-4"><a href="reportes-con-r-markdown.html#cb30-4" aria-hidden="true" tabindex="-1"></a><span class="do">#### Encabezado cuarto nivel</span></span>
+<span id="cb30-5"><a href="reportes-con-r-markdown.html#cb30-5" aria-hidden="true" tabindex="-1"></a><span class="do">##### Encabezado quinto nivel</span></span>
+<span id="cb30-6"><a href="reportes-con-r-markdown.html#cb30-6" aria-hidden="true" tabindex="-1"></a><span class="do">###### Encabezado sexto nivel</span></span></code></pre></div>
+</div>
+<div id="énfasis-en-texto" class="section level3" number="3.1.2">
+<h3><span class="header-section-number">3.1.2</span> Énfasis en texto</h3>
+<p>Hace referencia a las negritas e italicas o cursivas. Las etiquetas para hacer énfasis son los asteriscos (*) y los guiones bajos (_).</p>
+<p><strong>Texto y etiquetas en el archivo <code>.Rmd</code>:</strong></p>
+<div class="sourceCode" id="cb31"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb31-1"><a href="reportes-con-r-markdown.html#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span>Esto está en cursiva<span class="sc">*</span></span>
+<span id="cb31-2"><a href="reportes-con-r-markdown.html#cb31-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb31-3"><a href="reportes-con-r-markdown.html#cb31-3" aria-hidden="true" tabindex="-1"></a>_Esto también_</span>
+<span id="cb31-4"><a href="reportes-con-r-markdown.html#cb31-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-5"><a href="reportes-con-r-markdown.html#cb31-5" aria-hidden="true" tabindex="-1"></a><span class="sc">**</span>Esto está en negritas<span class="sc">**</span></span>
+<span id="cb31-6"><a href="reportes-con-r-markdown.html#cb31-6" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb31-7"><a href="reportes-con-r-markdown.html#cb31-7" aria-hidden="true" tabindex="-1"></a>__Esto también__</span>
+<span id="cb31-8"><a href="reportes-con-r-markdown.html#cb31-8" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb31-9"><a href="reportes-con-r-markdown.html#cb31-9" aria-hidden="true" tabindex="-1"></a><span class="sc">**</span><span class="er">*</span>Esto está en negritas y cursivas<span class="sc">**</span><span class="er">*</span></span></code></pre></div>
+<p><strong>Texto en archivo compilado</strong>:</p>
+<p><em>Esto está en cursiva</em></p>
+<p><em>Esto también</em></p>
+<p><strong>Esto está en negritas</strong></p>
+<p><strong>Esto también</strong></p>
+<p><strong><em>Esto está en negritas y cursivas</em></strong></p>
+</div>
+<div id="subíndices-y-superíndices" class="section level3" number="3.1.3">
+<h3><span class="header-section-number">3.1.3</span> Subíndices y superíndices</h3>
+<p>La etiqueta para los subíndices es la virgulilla (~), mientras que para los superíndices el símbolo de circunflejo (^).</p>
+<p><strong>Texto y etiquetas en el archivo <code>.Rmd</code>:</strong></p>
+<div class="sourceCode" id="cb32"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb32-1"><a href="reportes-con-r-markdown.html#cb32-1" aria-hidden="true" tabindex="-1"></a>Subíndice<span class="sc">:</span> CO<span class="sc">~</span><span class="dv">2</span><span class="sc">~</span></span>
+<span id="cb32-2"><a href="reportes-con-r-markdown.html#cb32-2" aria-hidden="true" tabindex="-1"></a>  </span>
+<span id="cb32-3"><a href="reportes-con-r-markdown.html#cb32-3" aria-hidden="true" tabindex="-1"></a>Superíndice<span class="sc">:</span> Mg<span class="sc">^</span><span class="dv">2</span><span class="sc">+</span><span class="er">^</span></span></code></pre></div>
+<p><strong>Texto en archivo compilado</strong>:</p>
+<p>Subíndice: CO<sub>2</sub></p>
+<p>Superíndice: Mg<sup>2+</sup></p>
+</div>
+<div id="espacios-entre-párrafos" class="section level3" number="3.1.4">
+<h3><span class="header-section-number">3.1.4</span> Espacios entre párrafos</h3>
+<p>Para dejar espacios entre párrafos se debe dejar una línea en blanco en el archivo <code>.Rmd</code>.</p>
+<p><strong>Texto y etiquetas en el archivo <code>.Rmd</code>:</strong></p>
+<div class="sourceCode" id="cb33"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb33-1"><a href="reportes-con-r-markdown.html#cb33-1" aria-hidden="true" tabindex="-1"></a>__Párrafo <span class="fl">1.</span>__</span>
+<span id="cb33-2"><a href="reportes-con-r-markdown.html#cb33-2" aria-hidden="true" tabindex="-1"></a><span class="st">&quot;Mientras he estado en esta parte alta casi no he comido otra cosa que carne de tortuga. El pecho, asado al estilo de los gauchos, es decir, sin quitarle la piel, es excelente; con las tortugas jóvenes se hace muy buena sopa.&quot;</span></span>
+<span id="cb33-3"><a href="reportes-con-r-markdown.html#cb33-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb33-4"><a href="reportes-con-r-markdown.html#cb33-4" aria-hidden="true" tabindex="-1"></a>__Párrafo <span class="fl">2.</span>__</span>
+<span id="cb33-5"><a href="reportes-con-r-markdown.html#cb33-5" aria-hidden="true" tabindex="-1"></a>“El hombre selecciona solo por su propio bien<span class="sc">:</span> la naturaleza solo por la del ser que ella tiende”.</span></code></pre></div>
+<p><strong>Texto en archivo compilado:</strong></p>
+<p><strong>Párrafo 1.</strong>
+“Mientras he estado en esta parte alta casi no he comido otra cosa que carne de tortuga. El pecho, asado al estilo de los gauchos, es decir, sin quitarle la piel, es excelente; con las tortugas jóvenes se hace muy buena sopa.”</p>
+<p><strong>Párrafo 2.</strong>
+“El hombre selecciona solo por su propio bien: la naturaleza solo por la del ser que ella tiende”.</p>
+</div>
+<div id="listas" class="section level3" number="3.1.5">
+<h3><span class="header-section-number">3.1.5</span> Listas</h3>
+<div id="listas-ordenadas" class="section level4" number="3.1.5.1">
+<h4><span class="header-section-number">3.1.5.1</span> Listas ordenadas</h4>
+<p><strong>Texto y etiquetas en el archivo <code>.Rmd</code>:</strong></p>
+<div class="sourceCode" id="cb34"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb34-1"><a href="reportes-con-r-markdown.html#cb34-1" aria-hidden="true" tabindex="-1"></a><span class="fl">1.</span> Rojo</span>
+<span id="cb34-2"><a href="reportes-con-r-markdown.html#cb34-2" aria-hidden="true" tabindex="-1"></a><span class="fl">2.</span> Azul</span>
+<span id="cb34-3"><a href="reportes-con-r-markdown.html#cb34-3" aria-hidden="true" tabindex="-1"></a><span class="fl">3.</span> Verde</span></code></pre></div>
+<p><strong>Texto en archivo compilado:</strong></p>
+<ol style="list-style-type: decimal">
+<li>Rojo</li>
+<li>Azul</li>
+<li>Verde</li>
+</ol>
+</div>
+<div id="listas-desordenadas" class="section level4" number="3.1.5.2">
+<h4><span class="header-section-number">3.1.5.2</span> Listas desordenadas</h4>
+<p>Las etiquetas para las listas desordenadas son los asterisocs (*) + espacio y los guiones (-) + espacio.</p>
+<p><strong>Texto y etiquetas en el archivo <code>.Rmd</code>:</strong></p>
+<div class="sourceCode" id="cb35"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb35-1"><a href="reportes-con-r-markdown.html#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Rojo</span>
+<span id="cb35-2"><a href="reportes-con-r-markdown.html#cb35-2" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Azul</span>
+<span id="cb35-3"><a href="reportes-con-r-markdown.html#cb35-3" aria-hidden="true" tabindex="-1"></a><span class="sc">*</span> Verde</span></code></pre></div>
+<p><strong>Texto en archivo compilado:</strong></p>
+<ul>
+<li>Rojo</li>
+<li>Azul</li>
+<li>Verde</li>
+</ul>
+</div>
+<div id="listas-anidadas" class="section level4" number="3.1.5.3">
+<h4><span class="header-section-number">3.1.5.3</span> Listas anidadas</h4>
+<p>Para las listas anidadas, es necesario dar un <code>tab</code> para el siguiente nivel de lista que se desea.</p>
+<p><strong>Texto y etiquetas en el archivo <code>.Rmd</code>:</strong></p>
+<div class="sourceCode" id="cb36"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb36-1"><a href="reportes-con-r-markdown.html#cb36-1" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Rojo</span>
+<span id="cb36-2"><a href="reportes-con-r-markdown.html#cb36-2" aria-hidden="true" tabindex="-1"></a>  <span class="fl">1.</span> Borgoña</span>
+<span id="cb36-3"><a href="reportes-con-r-markdown.html#cb36-3" aria-hidden="true" tabindex="-1"></a>  <span class="fl">2.</span> Carmesí</span>
+<span id="cb36-4"><a href="reportes-con-r-markdown.html#cb36-4" aria-hidden="true" tabindex="-1"></a><span class="sc">-</span> Verde</span>
+<span id="cb36-5"><a href="reportes-con-r-markdown.html#cb36-5" aria-hidden="true" tabindex="-1"></a>  <span class="fl">1.</span> Olivo</span></code></pre></div>
+<p><strong>Texto en archivo compilado:</strong>
+- Rojo
+1. Borgoña
+2. Carmesí
+- Verde
+1. Olivo</p>
+</div>
+</div>
+<div id="hipervínculos" class="section level3" number="3.1.6">
+<h3><span class="header-section-number">3.1.6</span> Hipervínculos</h3>
+<p><strong>Sintaxis</strong>:</p>
+<p>Opción 1:</p>
+<div class="sourceCode" id="cb37"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb37-1"><a href="reportes-con-r-markdown.html#cb37-1" aria-hidden="true" tabindex="-1"></a>[Texto](URL)</span></code></pre></div>
+<p>Opción 2:</p>
+<div class="sourceCode" id="cb38"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb38-1"><a href="reportes-con-r-markdown.html#cb38-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>URL<span class="sc">&gt;</span></span></code></pre></div>
+<p>Ejemplo:</p>
+<p><strong>Texto y etiquetas en el archivo <code>.Rmd</code>:</strong></p>
+<p>Opción 1:</p>
+<div class="sourceCode" id="cb39"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb39-1"><a href="reportes-con-r-markdown.html#cb39-1" aria-hidden="true" tabindex="-1"></a>[Winter Genomics](https<span class="sc">:</span><span class="er">//</span>www.wintergenomics.com<span class="sc">/</span>)</span></code></pre></div>
+<p>Opción 2:</p>
+<div class="sourceCode" id="cb40"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb40-1"><a href="reportes-con-r-markdown.html#cb40-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;</span>https<span class="sc">:</span><span class="er">//</span>www.wintergenomics.com<span class="sc">/</span><span class="er">&gt;</span></span></code></pre></div>
+<p><strong>Texto en archivo compilado:</strong></p>
+<ul>
+<li><p>Opción 1:
+Ésta es la página de <a href="https://www.wintergenomics.com/">Winter Genomics</a></p></li>
+<li><p>Opción 2:
+<a href="https://www.wintergenomics.com/" class="uri">https://www.wintergenomics.com/</a></p></li>
+</ul>
+</div>
+<div id="figuras" class="section level3" number="3.1.7">
+<h3><span class="header-section-number">3.1.7</span> Figuras</h3>
+<p><strong>Sintaxis</strong>:</p>
+<div class="sourceCode" id="cb41"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb41-1"><a href="reportes-con-r-markdown.html#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[Nombre_imagen](Ruta<span class="sc">/</span>ubicación de la imagen){especificaciones}</span></code></pre></div>
+<p><strong>Ejemplo:</strong></p>
+<div class="sourceCode" id="cb42"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb42-1"><a href="reportes-con-r-markdown.html#cb42-1" aria-hidden="true" tabindex="-1"></a><span class="sc">!</span>[Bioinformática](img<span class="sc">/</span>bioinformatica.png){width<span class="ot">=</span><span class="dv">20</span><span class="sc">% heigth=20%</span>}</span></code></pre></div>
+<p><strong>Output</strong>
+<img src="img/bioinformatica.png" heigth="20%" style="width:20.0%" alt="Bioinformática" /></p>
+</div>
+<div id="ecuaciones-matemáticas" class="section level3" number="3.1.8">
+<h3><span class="header-section-number">3.1.8</span> Ecuaciones matemáticas</h3>
+<p>Para ingresar ecuaciones matemáticas se utiliza el signo de pesos ($) como etiqueta y [los símbolos matemáticos de LaTex] (<a href="https://www.caam.rice.edu/~heinken/latex/symbols.pdf" class="uri">https://www.caam.rice.edu/~heinken/latex/symbols.pdf</a>). Además se tienen las siguientes opciones:</p>
+<ul>
+<li>Opción 1:</li>
+</ul>
+<div class="sourceCode" id="cb43"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb43-1"><a href="reportes-con-r-markdown.html#cb43-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span>F <span class="ot">=</span> (C\frac{<span class="dv">9</span>}{<span class="dv">5</span>}<span class="sc">+</span><span class="dv">32</span>)<span class="sc">$</span> </span></code></pre></div>
+<p><span class="math inline">\(F = (C\frac{9}{5}+32)\)</span></p>
+<ul>
+<li>Opción 2:</li>
+</ul>
+<div class="sourceCode" id="cb44"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb44-1"><a href="reportes-con-r-markdown.html#cb44-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span><span class="er">$</span>F <span class="ot">=</span> (C\frac{<span class="dv">9</span>}{<span class="dv">5</span>}<span class="sc">+</span><span class="dv">32</span>)<span class="sc">$</span><span class="er">$</span> </span></code></pre></div>
+<p><span class="math display">\[F = (C\frac{9}{5}+32)\]</span></p>
+<ul>
+<li>Opción 3:</li>
+</ul>
+<div class="sourceCode" id="cb45"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb45-1"><a href="reportes-con-r-markdown.html#cb45-1" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span><span class="er">$</span></span>
+<span id="cb45-2"><a href="reportes-con-r-markdown.html#cb45-2" aria-hidden="true" tabindex="-1"></a>  \int_0<span class="sc">^</span>\infty \frac{x<span class="sc">^</span><span class="dv">3</span>}{e<span class="sc">^</span>x<span class="dv">-1</span>}\,dx <span class="ot">=</span> \frac{\pi<span class="sc">^</span><span class="dv">4</span>}{<span class="dv">15</span>}</span>
+<span id="cb45-3"><a href="reportes-con-r-markdown.html#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="sc">$</span><span class="er">$</span></span></code></pre></div>
+<p><span class="math display">\[
+  \int_0^\infty \frac{x^3}{e^x-1}\,dx = \frac{\pi^4}{15}
+\]</span></p>
+</div>
+<div id="comentarios" class="section level3" number="3.1.9">
+<h3><span class="header-section-number">3.1.9</span> Comentarios</h3>
+<div class="sourceCode" id="cb46"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb46-1"><a href="reportes-con-r-markdown.html#cb46-1" aria-hidden="true" tabindex="-1"></a><span class="sc">&lt;!--</span> Esto es un comentario en un archivo .Rmd <span class="sc">-</span><span class="ot">-&gt;</span></span></code></pre></div>
+</div>
+</div>
+<div id="código-en-r-markdown" class="section level2" number="3.2">
+<h2><span class="header-section-number">3.2</span> Código en R Markdown</h2>
+<ul>
+<li>Instalar paqueterías para gráficos y tablas:</li>
+</ul>
+<div class="sourceCode" id="cb47"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb47-1"><a href="reportes-con-r-markdown.html#cb47-1" aria-hidden="true" tabindex="-1"></a>paqueterias <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="st">&quot;palmerpenguins&quot;</span>, <span class="co"># Datos</span></span>
+<span id="cb47-2"><a href="reportes-con-r-markdown.html#cb47-2" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;ggstatsplot&quot;</span>, <span class="co"># Gráficos con detalles estadísticos</span></span>
+<span id="cb47-3"><a href="reportes-con-r-markdown.html#cb47-3" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;kableExtra&quot;</span>, <span class="co"># Tablas</span></span>
+<span id="cb47-4"><a href="reportes-con-r-markdown.html#cb47-4" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;flextable&quot;</span>, <span class="co"># Tablas</span></span>
+<span id="cb47-5"><a href="reportes-con-r-markdown.html#cb47-5" aria-hidden="true" tabindex="-1"></a>                 <span class="st">&quot;tidyverse&quot;</span>) <span class="co"># Para ciencia de datos</span></span>
+<span id="cb47-6"><a href="reportes-con-r-markdown.html#cb47-6" aria-hidden="true" tabindex="-1"></a><span class="fu">install.packages</span>(paqueterias)</span></code></pre></div>
+<div id="configuraciones-de-chunks" class="section level3" number="3.2.1">
+<h3><span class="header-section-number">3.2.1</span> Configuraciones de chunks</h3>
+<p>Los bloques de código también tienen sus opciones, ¿Deseamos que se muestre el resultado? ¿Sólo el resultado del código? ¿Ambos?</p>
+<p>Algunos de éstas opciones son:</p>
+<ul>
+<li><code>echo =</code>: ¿Queremos que nuestro reporte incluya nuestro código?</li>
+<li><code>eval =</code>: ¿Queremos que R evalúe el código?</li>
+<li><code>message =</code>: ¿Queremos que nuestro reporte incluya los mensajes de la consola?</li>
+</ul>
+<p><strong>Importante</strong>: Éstas configuraciones son de tipo booleana (<code>TRUE</code>, <code>FALSE</code>)</p>
+<p>Vamos a ver a continuación los casos</p>
+<ul>
+<li>Primer caso</li>
+</ul>
+<p>Bloque de código en nuestro archivo <code>.Rmd</code>:</p>
+<div class="sourceCode" id="cb48"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb48-1"><a href="reportes-con-r-markdown.html#cb48-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-2"><a href="reportes-con-r-markdown.html#cb48-2" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval=TRUE, message = TRUE}</span></span>
+<span id="cb48-3"><a href="reportes-con-r-markdown.html#cb48-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-4"><a href="reportes-con-r-markdown.html#cb48-4" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb48-5"><a href="reportes-con-r-markdown.html#cb48-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb48-6"><a href="reportes-con-r-markdown.html#cb48-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<p>Lo que obtenemos en nuestro archivo compilado:</p>
+<div class="sourceCode" id="cb49"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb49-1"><a href="reportes-con-r-markdown.html#cb49-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.5     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
+## ✓ readr   2.0.2     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<ul>
+<li>Segundo caso</li>
+</ul>
+<p>Bloque de código en nuestro archivo <code>.Rmd</code>:</p>
+<div class="sourceCode" id="cb53"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb53-1"><a href="reportes-con-r-markdown.html#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval=TRUE, message = FALSE}</span></span>
+<span id="cb53-2"><a href="reportes-con-r-markdown.html#cb53-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-3"><a href="reportes-con-r-markdown.html#cb53-3" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb53-4"><a href="reportes-con-r-markdown.html#cb53-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb53-5"><a href="reportes-con-r-markdown.html#cb53-5" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<p>Lo que obtenemos en nuestro archivo compilado:</p>
+<div class="sourceCode" id="cb54"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb54-1"><a href="reportes-con-r-markdown.html#cb54-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<ul>
+<li>Tercer caso:
+Bloque de código en nuestro archivo <code>.Rmd</code>:</li>
+</ul>
+<div class="sourceCode" id="cb55"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb55-1"><a href="reportes-con-r-markdown.html#cb55-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-2"><a href="reportes-con-r-markdown.html#cb55-2" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = FALSE, eval=TRUE, message = FALSE}</span></span>
+<span id="cb55-3"><a href="reportes-con-r-markdown.html#cb55-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-4"><a href="reportes-con-r-markdown.html#cb55-4" aria-hidden="true" tabindex="-1"></a><span class="in">library(tidyverse)</span></span>
+<span id="cb55-5"><a href="reportes-con-r-markdown.html#cb55-5" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb55-6"><a href="reportes-con-r-markdown.html#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<p>Lo que obtenemos en nuestro archivo compilado:</p>
+<p>Nada… Aquí solo se cargó la librería y listo.</p>
+</div>
+<div id="insertar-figuras-con-código" class="section level3" number="3.2.2">
+<h3><span class="header-section-number">3.2.2</span> Insertar figuras con código:</h3>
+<p>Ahora veremos algunas de las opciones para insertar figuras y modificar el tamaño, la alineación y la inserción de títulos en las figuras.</p>
+<p>Comandos para la modificación de tamaño:</p>
+<ul>
+<li><p><code>out.width  = "45%"</code></p></li>
+<li><p><code>out.height  = "45%"</code></p></li>
+<li><p><code>fig.out = 4</code></p></li>
+<li><p><code>figt.width  = 4</code></p></li>
+</ul>
+<p>Comando para alinear:</p>
+<ul>
+<li><code>fig.align = "center"</code></li>
+</ul>
+<p>Comando para insertar títulos en las figuras:</p>
+<ul>
+<li><code>fig.cap = "Título de la figura"</code></li>
+</ul>
+<p>Ejemplo:</p>
+<p>Bloque de código en nuestro archivo <code>.Rmd</code>:</p>
+<div class="sourceCode" id="cb56"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb56-1"><a href="reportes-con-r-markdown.html#cb56-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-2"><a href="reportes-con-r-markdown.html#cb56-2" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, eval=TRUE, out.width = &#39;50%&#39;, fig.align = &#39;center&#39;, fig.cap = &quot;Pingüinos&quot;}</span></span>
+<span id="cb56-3"><a href="reportes-con-r-markdown.html#cb56-3" aria-hidden="true" tabindex="-1"></a><span class="in">url1 &lt;- &#39;https://www.goodnewsnetwork.org/wp-content/uploads/2014/11/penguin-science-rover-Le_Maho-research-in-NatureMethods.jpg&#39;</span></span>
+<span id="cb56-4"><a href="reportes-con-r-markdown.html#cb56-4" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb56-5"><a href="reportes-con-r-markdown.html#cb56-5" aria-hidden="true" tabindex="-1"></a><span class="in">knitr::include_graphics(url1) </span></span>
+<span id="cb56-6"><a href="reportes-con-r-markdown.html#cb56-6" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<p>Lo que obtenemos en nuestro archivo compilado:</p>
+<div class="sourceCode" id="cb57"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb57-1"><a href="reportes-con-r-markdown.html#cb57-1" aria-hidden="true" tabindex="-1"></a>url1 <span class="ot">&lt;-</span> <span class="st">&#39;https://www.goodnewsnetwork.org/wp-content/uploads/2014/11/penguin-science-rover-Le_Maho-research-in-NatureMethods.jpg&#39;</span></span>
+<span id="cb57-2"><a href="reportes-con-r-markdown.html#cb57-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb57-3"><a href="reportes-con-r-markdown.html#cb57-3" aria-hidden="true" tabindex="-1"></a>knitr<span class="sc">::</span><span class="fu">include_graphics</span>(url1) </span></code></pre></div>
+<div class="figure" style="text-align: center"><span style="display:block;" id="fig:unnamed-chunk-22"></span>
+<img src="https://www.goodnewsnetwork.org/wp-content/uploads/2014/11/penguin-science-rover-Le_Maho-research-in-NatureMethods.jpg" alt="Pingüinos" width="50%" />
+<p class="caption">
+Figure 3.1: Pingüinos
+</p>
+</div>
+</div>
+<div id="insertar-gráficos" class="section level3" number="3.2.3">
+<h3><span class="header-section-number">3.2.3</span> Insertar gráficos</h3>
+<p>Para éste apartado utilizaremos las librerias de <a href="https://allisonhorst.github.io/palmerpenguins/"><code>palmerpenguins</code></a>, <a href="https://indrajeetpatil.github.io/ggstatsplot/"><code>ggstatsplot</code></a> y <a href="https://www.tidyverse.org/"></a></p>
+<ul>
+<li>Primero, vamos a cargar las paqueterías en cuestión:</li>
+</ul>
+<div class="sourceCode" id="cb58"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb58-1"><a href="reportes-con-r-markdown.html#cb58-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(palmerpenguins)</span>
+<span id="cb58-2"><a href="reportes-con-r-markdown.html#cb58-2" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggstatsplot)</span></code></pre></div>
+<ul>
+<li>Para conocer los datos puedes escribir en un script de apoyo el siguiente comando:</li>
+</ul>
+<div class="sourceCode" id="cb59"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb59-1"><a href="reportes-con-r-markdown.html#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="fu">data</span>(<span class="at">package =</span> <span class="st">&#39;palmerpenguins&#39;</span>)</span></code></pre></div>
+<p>Imprimirá por consola lo siguiente:</p>
+<div class="sourceCode" id="cb60"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb60-1"><a href="reportes-con-r-markdown.html#cb60-1" aria-hidden="true" tabindex="-1"></a>Data sets <span class="cf">in</span> package ‘palmerpenguins’<span class="sc">:</span></span>
+<span id="cb60-2"><a href="reportes-con-r-markdown.html#cb60-2" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb60-3"><a href="reportes-con-r-markdown.html#cb60-3" aria-hidden="true" tabindex="-1"></a>penguins                    Size measurements <span class="cf">for</span> adult foraging penguins near</span>
+<span id="cb60-4"><a href="reportes-con-r-markdown.html#cb60-4" aria-hidden="true" tabindex="-1"></a>                            Palmer Station, Antarctica</span>
+<span id="cb60-5"><a href="reportes-con-r-markdown.html#cb60-5" aria-hidden="true" tabindex="-1"></a><span class="fu">penguins_raw</span> (penguins)     Penguin size, clutch, and blood isotope data <span class="cf">for</span></span>
+<span id="cb60-6"><a href="reportes-con-r-markdown.html#cb60-6" aria-hidden="true" tabindex="-1"></a>                            foraging adults near Palmer Station, Antarctica</span></code></pre></div>
+<p>Esto quiere decir que nuestra libreria contiene dos datasets <code>penguins</code> y <code>penguins_raw</code>.</p>
+<ul>
+<li>Procesamos a generar un gráfico, para esto utilizaremos las configuraciones de <code>fig.width =</code> y <code>fig.height=</code>.</li>
+</ul>
+<p>Bloque de código en nuestro archivo <code>.Rmd</code>:</p>
+<div class="sourceCode" id="cb61"><pre class="sourceCode markdown"><code class="sourceCode markdown"><span id="cb61-1"><a href="reportes-con-r-markdown.html#cb61-1" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-2"><a href="reportes-con-r-markdown.html#cb61-2" aria-hidden="true" tabindex="-1"></a><span class="in">```{r, echo = TRUE, warning = FALSE, fig.width = 7, fig.height = 8, fig.align = &#39;center&#39;}</span></span>
+<span id="cb61-3"><a href="reportes-con-r-markdown.html#cb61-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-4"><a href="reportes-con-r-markdown.html#cb61-4" aria-hidden="true" tabindex="-1"></a><span class="in">plt &lt;- ggbetweenstats(</span></span>
+<span id="cb61-5"><a href="reportes-con-r-markdown.html#cb61-5" aria-hidden="true" tabindex="-1"></a><span class="in">  data = penguins,</span></span>
+<span id="cb61-6"><a href="reportes-con-r-markdown.html#cb61-6" aria-hidden="true" tabindex="-1"></a><span class="in">  x = species,</span></span>
+<span id="cb61-7"><a href="reportes-con-r-markdown.html#cb61-7" aria-hidden="true" tabindex="-1"></a><span class="in">  y = flipper_length_mm</span></span>
+<span id="cb61-8"><a href="reportes-con-r-markdown.html#cb61-8" aria-hidden="true" tabindex="-1"></a><span class="in">)  + </span></span>
+<span id="cb61-9"><a href="reportes-con-r-markdown.html#cb61-9" aria-hidden="true" tabindex="-1"></a><span class="in">  labs(</span></span>
+<span id="cb61-10"><a href="reportes-con-r-markdown.html#cb61-10" aria-hidden="true" tabindex="-1"></a><span class="in">    x = &quot;Especies&quot;,</span></span>
+<span id="cb61-11"><a href="reportes-con-r-markdown.html#cb61-11" aria-hidden="true" tabindex="-1"></a><span class="in">    y = &quot;Longitud del pico&quot;,</span></span>
+<span id="cb61-12"><a href="reportes-con-r-markdown.html#cb61-12" aria-hidden="true" tabindex="-1"></a><span class="in">    title = &quot;Distribución de la longitud del pico.&quot;</span></span>
+<span id="cb61-13"><a href="reportes-con-r-markdown.html#cb61-13" aria-hidden="true" tabindex="-1"></a><span class="in">  ) + </span></span>
+<span id="cb61-14"><a href="reportes-con-r-markdown.html#cb61-14" aria-hidden="true" tabindex="-1"></a><span class="in">  theme(</span></span>
+<span id="cb61-15"><a href="reportes-con-r-markdown.html#cb61-15" aria-hidden="true" tabindex="-1"></a><span class="in">    text = element_text(size = 9, </span></span>
+<span id="cb61-16"><a href="reportes-con-r-markdown.html#cb61-16" aria-hidden="true" tabindex="-1"></a><span class="in">                        color = &quot;black&quot;),</span></span>
+<span id="cb61-17"><a href="reportes-con-r-markdown.html#cb61-17" aria-hidden="true" tabindex="-1"></a><span class="in">    plot.title = element_text(</span></span>
+<span id="cb61-18"><a href="reportes-con-r-markdown.html#cb61-18" aria-hidden="true" tabindex="-1"></a><span class="in">      size = 20,</span></span>
+<span id="cb61-19"><a href="reportes-con-r-markdown.html#cb61-19" aria-hidden="true" tabindex="-1"></a><span class="in">      face = &quot;bold&quot;,</span></span>
+<span id="cb61-20"><a href="reportes-con-r-markdown.html#cb61-20" aria-hidden="true" tabindex="-1"></a><span class="in">      color = &quot;#2a475e&quot;</span></span>
+<span id="cb61-21"><a href="reportes-con-r-markdown.html#cb61-21" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
+<span id="cb61-22"><a href="reportes-con-r-markdown.html#cb61-22" aria-hidden="true" tabindex="-1"></a><span class="in">    )</span></span>
+<span id="cb61-23"><a href="reportes-con-r-markdown.html#cb61-23" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb61-24"><a href="reportes-con-r-markdown.html#cb61-24" aria-hidden="true" tabindex="-1"></a><span class="in">plt</span></span>
+<span id="cb61-25"><a href="reportes-con-r-markdown.html#cb61-25" aria-hidden="true" tabindex="-1"></a><span class="in">```</span></span></code></pre></div>
+<p>Lo que obtenemos en nuestro archivo compilado:</p>
+<div class="sourceCode" id="cb62"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb62-1"><a href="reportes-con-r-markdown.html#cb62-1" aria-hidden="true" tabindex="-1"></a>plt <span class="ot">&lt;-</span> <span class="fu">ggbetweenstats</span>(</span>
+<span id="cb62-2"><a href="reportes-con-r-markdown.html#cb62-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">data =</span> penguins,</span>
+<span id="cb62-3"><a href="reportes-con-r-markdown.html#cb62-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">x =</span> species,</span>
+<span id="cb62-4"><a href="reportes-con-r-markdown.html#cb62-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">y =</span> flipper_length_mm</span>
+<span id="cb62-5"><a href="reportes-con-r-markdown.html#cb62-5" aria-hidden="true" tabindex="-1"></a>)  <span class="sc">+</span> </span>
+<span id="cb62-6"><a href="reportes-con-r-markdown.html#cb62-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">labs</span>(</span>
+<span id="cb62-7"><a href="reportes-con-r-markdown.html#cb62-7" aria-hidden="true" tabindex="-1"></a>    <span class="at">x =</span> <span class="st">&quot;Especies&quot;</span>,</span>
+<span id="cb62-8"><a href="reportes-con-r-markdown.html#cb62-8" aria-hidden="true" tabindex="-1"></a>    <span class="at">y =</span> <span class="st">&quot;Longitud del pico&quot;</span>,</span>
+<span id="cb62-9"><a href="reportes-con-r-markdown.html#cb62-9" aria-hidden="true" tabindex="-1"></a>    <span class="at">title =</span> <span class="st">&quot;Distribución de la longitud del pico.&quot;</span></span>
+<span id="cb62-10"><a href="reportes-con-r-markdown.html#cb62-10" aria-hidden="true" tabindex="-1"></a>  ) <span class="sc">+</span> </span>
+<span id="cb62-11"><a href="reportes-con-r-markdown.html#cb62-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">theme</span>(</span>
+<span id="cb62-12"><a href="reportes-con-r-markdown.html#cb62-12" aria-hidden="true" tabindex="-1"></a>    <span class="at">text =</span> <span class="fu">element_text</span>(<span class="at">size =</span> <span class="dv">9</span>, </span>
+<span id="cb62-13"><a href="reportes-con-r-markdown.html#cb62-13" aria-hidden="true" tabindex="-1"></a>                        <span class="at">color =</span> <span class="st">&quot;black&quot;</span>),</span>
+<span id="cb62-14"><a href="reportes-con-r-markdown.html#cb62-14" aria-hidden="true" tabindex="-1"></a>    <span class="at">plot.title =</span> <span class="fu">element_text</span>(</span>
+<span id="cb62-15"><a href="reportes-con-r-markdown.html#cb62-15" aria-hidden="true" tabindex="-1"></a>      <span class="at">size =</span> <span class="dv">20</span>,</span>
+<span id="cb62-16"><a href="reportes-con-r-markdown.html#cb62-16" aria-hidden="true" tabindex="-1"></a>      <span class="at">face =</span> <span class="st">&quot;bold&quot;</span>,</span>
+<span id="cb62-17"><a href="reportes-con-r-markdown.html#cb62-17" aria-hidden="true" tabindex="-1"></a>      <span class="at">color =</span> <span class="st">&quot;#2a475e&quot;</span></span>
+<span id="cb62-18"><a href="reportes-con-r-markdown.html#cb62-18" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb62-19"><a href="reportes-con-r-markdown.html#cb62-19" aria-hidden="true" tabindex="-1"></a>    )</span>
+<span id="cb62-20"><a href="reportes-con-r-markdown.html#cb62-20" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb62-21"><a href="reportes-con-r-markdown.html#cb62-21" aria-hidden="true" tabindex="-1"></a>plt</span></code></pre></div>
+<p><img src="03-rmarkdown_files/figure-html/unnamed-chunk-26-1.png" width="672" style="display: block; margin: auto;" /></p>
+<p>Para conocer más opciones sobre la configuración de los bloques de código, puedes consultar el libro <a href="https://yihui.org/knitr/options/">knitr: elegant, flexible, and fast dynamic report generation with R</a>.</p>
+</div>
+<div id="tablas-con-paqueterías-especializadas" class="section level3" number="3.2.4">
+<h3><span class="header-section-number">3.2.4</span> Tablas con paqueterías especializadas</h3>
+<p>Utilizaremos las librerias de <a href="https://cran.r-project.org/web/packages/kableExtra/vignettes/awesome_table_in_html.html"><code>kableExtra</code></a> y <a href="https://ardata-fr.github.io/flextable-book/"><code>flextable</code></a>.</p>
+<ul>
+<li>Primero, llamamos a las librerías:</li>
+</ul>
+<div class="sourceCode" id="cb63"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb63-1"><a href="reportes-con-r-markdown.html#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(kableExtra)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;kableExtra&#39;</code></pre>
+<pre><code>## The following object is masked from &#39;package:dplyr&#39;:
+## 
+##     group_rows</code></pre>
+<div class="sourceCode" id="cb66"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb66-1"><a href="reportes-con-r-markdown.html#cb66-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(flextable)</span></code></pre></div>
+<pre><code>## 
+## Attaching package: &#39;flextable&#39;</code></pre>
+<pre><code>## The following objects are masked from &#39;package:kableExtra&#39;:
+## 
+##     as_image, footnote</code></pre>
+<pre><code>## The following object is masked from &#39;package:purrr&#39;:
+## 
+##     compose</code></pre>
+<div class="sourceCode" id="cb70"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb70-1"><a href="reportes-con-r-markdown.html#cb70-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(tidyverse)</span></code></pre></div>
+<ul>
+<li>Luego, vamos a generar una tabla sencilla con <code>kable</code>, ésta paquetería viene incluida en <code>knitr</code>. Además utilizaremos la tabla de <code>penguins</code> incluida en la librería de <code>palmerpenguins</code>.</li>
+</ul>
+<div class="sourceCode" id="cb71"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb71-1"><a href="reportes-con-r-markdown.html#cb71-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrado rápido</span></span>
+<span id="cb71-2"><a href="reportes-con-r-markdown.html#cb71-2" aria-hidden="true" tabindex="-1"></a>penguins_table <span class="ot">&lt;-</span> <span class="fu">head</span>(penguins, <span class="dv">10</span>)[,<span class="dv">1</span><span class="sc">:</span><span class="dv">4</span>]</span>
+<span id="cb71-3"><a href="reportes-con-r-markdown.html#cb71-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-4"><a href="reportes-con-r-markdown.html#cb71-4" aria-hidden="true" tabindex="-1"></a>tabla1 <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(penguins_table, </span>
+<span id="cb71-5"><a href="reportes-con-r-markdown.html#cb71-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption=</span> <span class="st">&quot;Tabla con kable&quot;</span>)</span>
+<span id="cb71-6"><a href="reportes-con-r-markdown.html#cb71-6" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb71-7"><a href="reportes-con-r-markdown.html#cb71-7" aria-hidden="true" tabindex="-1"></a>tabla1</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-28">Table 3.1: </span>Tabla con kable
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+species
+</th>
+<th style="text-align:left;">
+island
+</th>
+<th style="text-align:right;">
+bill_length_mm
+</th>
+<th style="text-align:right;">
+bill_depth_mm
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+39.1
+</td>
+<td style="text-align:right;">
+18.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+39.5
+</td>
+<td style="text-align:right;">
+17.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+40.3
+</td>
+<td style="text-align:right;">
+18.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+NA
+</td>
+<td style="text-align:right;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+36.7
+</td>
+<td style="text-align:right;">
+19.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+39.3
+</td>
+<td style="text-align:right;">
+20.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+38.9
+</td>
+<td style="text-align:right;">
+17.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+39.2
+</td>
+<td style="text-align:right;">
+19.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+34.1
+</td>
+<td style="text-align:right;">
+18.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+42.0
+</td>
+<td style="text-align:right;">
+20.2
+</td>
+</tr>
+</tbody>
+</table>
+<div id="tabla-con-kableextra" class="section level4" number="3.2.4.1">
+<h4><span class="header-section-number">3.2.4.1</span> Tabla con <code>kableExtra</code></h4>
+<p>Ahora, reharemos nuestra tabla anterior pero adicionaremos algunas especificaciones en las filas (<code>row_spec</code>) y en las columnas (<code>column_spec</code>) con <code>kableExtra</code>.</p>
+<div class="sourceCode" id="cb72"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb72-1"><a href="reportes-con-r-markdown.html#cb72-1" aria-hidden="true" tabindex="-1"></a>tabla2 <span class="ot">&lt;-</span> knitr<span class="sc">::</span><span class="fu">kable</span>(penguins_table, </span>
+<span id="cb72-2"><a href="reportes-con-r-markdown.html#cb72-2" aria-hidden="true" tabindex="-1"></a>  <span class="at">caption=</span> <span class="st">&quot;Tabla con kableExtra&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb72-3"><a href="reportes-con-r-markdown.html#cb72-3" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">1</span>, <span class="at">bold =</span> <span class="cn">TRUE</span>, <span class="at">italic =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb72-4"><a href="reportes-con-r-markdown.html#cb72-4" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">2</span><span class="sc">:</span><span class="dv">3</span>, <span class="at">color =</span> <span class="st">&#39;white&#39;</span>, <span class="at">background =</span> <span class="st">&#39;black&#39;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb72-5"><a href="reportes-con-r-markdown.html#cb72-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">row_spec</span>(<span class="dv">4</span>, <span class="at">underline =</span> <span class="cn">TRUE</span>, <span class="at">monospace =</span> <span class="cn">TRUE</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb72-6"><a href="reportes-con-r-markdown.html#cb72-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">column_spec</span>(<span class="dv">4</span>, <span class="at">strikeout =</span> <span class="cn">TRUE</span>)</span>
+<span id="cb72-7"><a href="reportes-con-r-markdown.html#cb72-7" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb72-8"><a href="reportes-con-r-markdown.html#cb72-8" aria-hidden="true" tabindex="-1"></a>tabla2</span></code></pre></div>
+<table>
+<caption>
+<span id="tab:unnamed-chunk-29">Table 3.2: </span>Tabla con kableExtra
+</caption>
+<thead>
+<tr>
+<th style="text-align:left;">
+species
+</th>
+<th style="text-align:left;">
+island
+</th>
+<th style="text-align:right;">
+bill_length_mm
+</th>
+<th style="text-align:right;">
+bill_depth_mm
+</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:left;font-weight: bold;font-style: italic;">
+Adelie
+</td>
+<td style="text-align:left;font-weight: bold;font-style: italic;">
+Torgersen
+</td>
+<td style="text-align:right;font-weight: bold;font-style: italic;">
+39.1
+</td>
+<td style="text-align:right;font-weight: bold;font-style: italic;text-decoration: line-through;">
+18.7
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: black !important;">
+Adelie
+</td>
+<td style="text-align:left;color: white !important;background-color: black !important;">
+Torgersen
+</td>
+<td style="text-align:right;color: white !important;background-color: black !important;">
+39.5
+</td>
+<td style="text-align:right;color: white !important;background-color: black !important;text-decoration: line-through;">
+17.4
+</td>
+</tr>
+<tr>
+<td style="text-align:left;color: white !important;background-color: black !important;">
+Adelie
+</td>
+<td style="text-align:left;color: white !important;background-color: black !important;">
+Torgersen
+</td>
+<td style="text-align:right;color: white !important;background-color: black !important;">
+40.3
+</td>
+<td style="text-align:right;color: white !important;background-color: black !important;text-decoration: line-through;">
+18.0
+</td>
+</tr>
+<tr>
+<td style="text-align:left;font-family: monospace;text-decoration: underline;">
+Adelie
+</td>
+<td style="text-align:left;font-family: monospace;text-decoration: underline;">
+Torgersen
+</td>
+<td style="text-align:right;font-family: monospace;text-decoration: underline;">
+NA
+</td>
+<td style="text-align:right;font-family: monospace;text-decoration: underline;text-decoration: line-through;">
+NA
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+36.7
+</td>
+<td style="text-align:right;text-decoration: line-through;">
+19.3
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+39.3
+</td>
+<td style="text-align:right;text-decoration: line-through;">
+20.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+38.9
+</td>
+<td style="text-align:right;text-decoration: line-through;">
+17.8
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+39.2
+</td>
+<td style="text-align:right;text-decoration: line-through;">
+19.6
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+34.1
+</td>
+<td style="text-align:right;text-decoration: line-through;">
+18.1
+</td>
+</tr>
+<tr>
+<td style="text-align:left;">
+Adelie
+</td>
+<td style="text-align:left;">
+Torgersen
+</td>
+<td style="text-align:right;">
+42.0
+</td>
+<td style="text-align:right;text-decoration: line-through;">
+20.2
+</td>
+</tr>
+</tbody>
+</table>
+<p>Aquí podemos observar un símbolo nuevo (%&gt;%), éste símbolo es conocido como <em>pipe</em> y pertenece a la librería de <code>magrittr</code>, la cual a su vez viene incluida en <code>tidyverse</code>. Un <em>pipe</em> permite conectar procesos, tomando el resultado de salida del proceso anterior como entrada del siguiente proceso. Ésta acción permite que el código sea mucho más limpio y fácil de leer y que el programa sea más eficiente.</p>
+</div>
+<div id="tabla-con-flextable" class="section level4" number="3.2.4.2">
+<h4><span class="header-section-number">3.2.4.2</span> Tabla con <a href="https://ardata-fr.github.io/flextable-book/"><code>Flextable</code></a></h4>
+<p>Para la generación de la tabla con ésta paquetería utilizaremos el dataset de <code>penguins_raw</code> de nuestra libreria de <code>palmerpenguins</code>.</p>
+<div class="sourceCode" id="cb73"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb73-1"><a href="reportes-con-r-markdown.html#cb73-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Filtrado rápido</span></span>
+<span id="cb73-2"><a href="reportes-con-r-markdown.html#cb73-2" aria-hidden="true" tabindex="-1"></a>penguins_data3 <span class="ot">&lt;-</span> <span class="fu">head</span>(penguins_raw, <span class="at">n =</span> <span class="dv">5</span>)[, <span class="fu">c</span>(<span class="dv">3</span>,<span class="dv">10</span><span class="sc">:</span><span class="dv">14</span>)]</span>
+<span id="cb73-3"><a href="reportes-con-r-markdown.html#cb73-3" aria-hidden="true" tabindex="-1"></a></span>
+<span id="cb73-4"><a href="reportes-con-r-markdown.html#cb73-4" aria-hidden="true" tabindex="-1"></a>penguins_data3 <span class="sc">%&gt;%</span></span>
+<span id="cb73-5"><a href="reportes-con-r-markdown.html#cb73-5" aria-hidden="true" tabindex="-1"></a>  <span class="fu">flextable</span>()<span class="sc">%&gt;%</span></span>
+<span id="cb73-6"><a href="reportes-con-r-markdown.html#cb73-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">fix_border_issues</span>(<span class="at">part=</span><span class="st">&quot;all&quot;</span>)<span class="sc">%&gt;%</span></span>
+<span id="cb73-7"><a href="reportes-con-r-markdown.html#cb73-7" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bold</span>(<span class="at">part=</span><span class="st">&quot;header&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb73-8"><a href="reportes-con-r-markdown.html#cb73-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">align</span>(<span class="at">align =</span> <span class="st">&quot;center&quot;</span>, <span class="at">part=</span> <span class="st">&quot;all&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb73-9"><a href="reportes-con-r-markdown.html#cb73-9" aria-hidden="true" tabindex="-1"></a>  <span class="fu">color</span>(., <span class="sc">~</span> <span class="st">`</span><span class="at">Culmen Length (mm)</span><span class="st">`</span>  <span class="sc">&lt;</span> <span class="dv">40</span>, <span class="sc">~</span> <span class="st">`</span><span class="at">Culmen Length (mm)</span><span class="st">`</span> , <span class="at">color =</span> <span class="st">&quot;orange&quot;</span>) <span class="sc">%&gt;%</span> </span>
+<span id="cb73-10"><a href="reportes-con-r-markdown.html#cb73-10" aria-hidden="true" tabindex="-1"></a>  <span class="fu">color</span>(., <span class="sc">~</span> <span class="st">`</span><span class="at">Culmen Depth (mm)</span><span class="st">`</span> <span class="sc">&gt;</span> <span class="dv">18</span>, <span class="sc">~</span> <span class="st">`</span><span class="at">Culmen Depth (mm)</span><span class="st">`</span>, <span class="at">color =</span> <span class="st">&quot;green&quot;</span>) <span class="sc">%&gt;%</span></span>
+<span id="cb73-11"><a href="reportes-con-r-markdown.html#cb73-11" aria-hidden="true" tabindex="-1"></a>  <span class="fu">bg</span>(.,<span class="at">bg =</span> <span class="st">&quot;#AEDEF3&quot;</span>, <span class="at">part =</span> <span class="st">&quot;header&quot;</span>)</span></code></pre></div>
+<template id="74965fae-877f-4d7d-99d2-ec9fa6864bc1"><style>
+.tabwid table{
+  border-spacing:0px !important;
+  border-collapse:collapse;
+  line-height:1;
+  margin-left:auto;
+  margin-right:auto;
+  border-width: 0;
+  display: table;
+  margin-top: 1.275em;
+  margin-bottom: 1.275em;
+  border-color: transparent;
+}
+.tabwid_left table{
+  margin-left:0;
+}
+.tabwid_right table{
+  margin-right:0;
+}
+.tabwid td {
+    padding: 0;
+}
+.tabwid a {
+  text-decoration: none;
+}
+.tabwid thead {
+    background-color: transparent;
+}
+.tabwid tfoot {
+    background-color: transparent;
+}
+.tabwid table tr {
+background-color: transparent;
+}
+</style><div class="tabwid"><style>.cl-6e977788{}.cl-6e909d5a{font-family:'Helvetica';font-size:11pt;font-weight:bold;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6e909d82{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 0, 0, 1.00);background-color:transparent;}.cl-6e909d83{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(255, 165, 0, 1.00);background-color:transparent;}.cl-6e909d8c{font-family:'Helvetica';font-size:11pt;font-weight:normal;font-style:normal;text-decoration:none;color:rgba(0, 255, 0, 1.00);background-color:transparent;}.cl-6e90bbdc{margin:0;text-align:center;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);padding-bottom:5pt;padding-top:5pt;padding-left:5pt;padding-right:5pt;line-height: 1;background-color:transparent;}.cl-6e90ef12{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 0 solid rgba(0, 0, 0, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e90ef1c{width:54pt;background-color:transparent;vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 0 solid rgba(0, 0, 0, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}.cl-6e90ef26{width:54pt;background-color:rgba(174, 222, 243, 1.00);vertical-align: middle;border-bottom: 2pt solid rgba(102, 102, 102, 1.00);border-top: 2pt solid rgba(102, 102, 102, 1.00);border-left: 0 solid rgba(0, 0, 0, 1.00);border-right: 0 solid rgba(0, 0, 0, 1.00);margin-bottom:0;margin-top:0;margin-left:0;margin-right:0;}</style><table class='cl-6e977788'>
+<thead><tr style="overflow-wrap:break-word;"><td class="cl-6e90ef26"><p class="cl-6e90bbdc"><span class="cl-6e909d5a">Species</span></p></td><td class="cl-6e90ef26"><p class="cl-6e90bbdc"><span class="cl-6e909d5a">Culmen Length (mm)</span></p></td><td class="cl-6e90ef26"><p class="cl-6e90bbdc"><span class="cl-6e909d5a">Culmen Depth (mm)</span></p></td><td class="cl-6e90ef26"><p class="cl-6e90bbdc"><span class="cl-6e909d5a">Flipper Length (mm)</span></p></td><td class="cl-6e90ef26"><p class="cl-6e90bbdc"><span class="cl-6e909d5a">Body Mass (g)</span></p></td><td class="cl-6e90ef26"><p class="cl-6e90bbdc"><span class="cl-6e909d5a">Sex</span></p></td></tr></thead><tbody><tr style="overflow-wrap:break-word;"><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d83">39.1</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d8c">18.7</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">181</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">3,750</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">MALE</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d83">39.5</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">17.4</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">186</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">3,800</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">FEMALE</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">40.3</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">18.0</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">195</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">3,250</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">FEMALE</span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82"></span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82"></span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82"></span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82"></span></p></td><td class="cl-6e90ef12"><p class="cl-6e90bbdc"><span class="cl-6e909d82"></span></p></td></tr><tr style="overflow-wrap:break-word;"><td class="cl-6e90ef1c"><p class="cl-6e90bbdc"><span class="cl-6e909d82">Adelie Penguin (Pygoscelis adeliae)</span></p></td><td class="cl-6e90ef1c"><p class="cl-6e90bbdc"><span class="cl-6e909d83">36.7</span></p></td><td class="cl-6e90ef1c"><p class="cl-6e90bbdc"><span class="cl-6e909d8c">19.3</span></p></td><td class="cl-6e90ef1c"><p class="cl-6e90bbdc"><span class="cl-6e909d82">193</span></p></td><td class="cl-6e90ef1c"><p class="cl-6e90bbdc"><span class="cl-6e909d82">3,450</span></p></td><td class="cl-6e90ef1c"><p class="cl-6e90bbdc"><span class="cl-6e909d82">FEMALE</span></p></td></tr></tbody></table></div></template>
+<div class="flextable-shadow-host" id="c6159f3d-70ab-4c41-9f70-d986fb7036a2"></div>
+<script>
+var dest = document.getElementById("c6159f3d-70ab-4c41-9f70-d986fb7036a2");
+var template = document.getElementById("74965fae-877f-4d7d-99d2-ec9fa6864bc1");
+var caption = template.content.querySelector("caption");
+if(caption) {
+  caption.style.cssText = "display:block;text-align:center;";
+  var newcapt = document.createElement("p");
+  newcapt.appendChild(caption)
+  dest.parentNode.insertBefore(newcapt, dest.previousSibling);
+}
+var fantome = dest.attachShadow({mode: 'open'});
+var templateContent = template.content;
+fantome.appendChild(templateContent);
+</script>
+
+<p>Como se puede observar, con <code>flextable</code> también es posible llevar a cabo diversas modificaciones que permiten una mejor visualización de las tablas que reportemos.</p>
+</div>
+</div>
+</div>
+<div id="sección-de-metadatos-yaml" class="section level2" number="3.3">
+<h2><span class="header-section-number">3.3</span> Sección de metadatos: YAML</h2>
+<p><code>YAML</code> <em>Ain`t Markup Language</em> (YAML no es un lenguaje de marcado). Es un lenguaje que permite especificar algunos detalles del documento de salida como: el autor, el título, la fecha, si deseamos que las secciones estén numeradas, la tabla de contendio, entre muchas otras cosas.</p>
+<p>Por ejemplo:</p>
+<div class="sourceCode" id="cb74"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb74-1"><a href="reportes-con-r-markdown.html#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb74-2"><a href="reportes-con-r-markdown.html#cb74-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Mi primer reporte&quot;</span></span>
+<span id="cb74-3"><a href="reportes-con-r-markdown.html#cb74-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Winter Genomics&quot;</span></span>
+<span id="cb74-4"><a href="reportes-con-r-markdown.html#cb74-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;26/11/2021&quot;</span></span>
+<span id="cb74-5"><a href="reportes-con-r-markdown.html#cb74-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> html_document</span></span>
+<span id="cb74-6"><a href="reportes-con-r-markdown.html#cb74-6" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>Para agregar tablas de contenido podemos utilizar <code>toc</code> que significa *Table of Contents`.</p>
+<div class="sourceCode" id="cb75"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb75-1"><a href="reportes-con-r-markdown.html#cb75-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb75-2"><a href="reportes-con-r-markdown.html#cb75-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Mi primer reporte&quot;</span></span>
+<span id="cb75-3"><a href="reportes-con-r-markdown.html#cb75-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Winter Genomics&quot;</span></span>
+<span id="cb75-4"><a href="reportes-con-r-markdown.html#cb75-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;26/11/2021&quot;</span></span>
+<span id="cb75-5"><a href="reportes-con-r-markdown.html#cb75-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb75-6"><a href="reportes-con-r-markdown.html#cb75-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb75-7"><a href="reportes-con-r-markdown.html#cb75-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co"> # Agrega la tabla de contenido</span></span>
+<span id="cb75-8"><a href="reportes-con-r-markdown.html#cb75-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc_float</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span><span class="co"> # Agrega un índice &quot;flotante&quot;</span></span>
+<span id="cb75-9"><a href="reportes-con-r-markdown.html#cb75-9" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>También se puede agregar el número de secciones con el comando <code>number_sections</code>:</p>
+<div class="sourceCode" id="cb76"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb76-1"><a href="reportes-con-r-markdown.html#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb76-2"><a href="reportes-con-r-markdown.html#cb76-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Mi primer reporte&quot;</span></span>
+<span id="cb76-3"><a href="reportes-con-r-markdown.html#cb76-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Winter Genomics&quot;</span></span>
+<span id="cb76-4"><a href="reportes-con-r-markdown.html#cb76-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;26/11/2021&quot;</span></span>
+<span id="cb76-5"><a href="reportes-con-r-markdown.html#cb76-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb76-6"><a href="reportes-con-r-markdown.html#cb76-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb76-7"><a href="reportes-con-r-markdown.html#cb76-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb76-8"><a href="reportes-con-r-markdown.html#cb76-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc_float</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb76-9"><a href="reportes-con-r-markdown.html#cb76-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc_depth</span><span class="kw">:</span><span class="at"> </span><span class="dv">1</span></span>
+<span id="cb76-10"><a href="reportes-con-r-markdown.html#cb76-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb76-11"><a href="reportes-con-r-markdown.html#cb76-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;yeti&quot;</span></span>
+<span id="cb76-12"><a href="reportes-con-r-markdown.html#cb76-12" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">highlight</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;tango&quot;</span></span>
+<span id="cb76-13"><a href="reportes-con-r-markdown.html#cb76-13" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>Y, por útimo, <code>R Markdown</code> nos da la opción de cambiar el tema y el resaltado con los comandos <code>theme:</code> y <code>highlight:</code>.</p>
+<div class="sourceCode" id="cb77"><pre class="sourceCode yaml"><code class="sourceCode yaml"><span id="cb77-1"><a href="reportes-con-r-markdown.html#cb77-1" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span>
+<span id="cb77-2"><a href="reportes-con-r-markdown.html#cb77-2" aria-hidden="true" tabindex="-1"></a><span class="fu">title</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Mi primer reporte&quot;</span></span>
+<span id="cb77-3"><a href="reportes-con-r-markdown.html#cb77-3" aria-hidden="true" tabindex="-1"></a><span class="fu">author</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;Winter Genomics&quot;</span></span>
+<span id="cb77-4"><a href="reportes-con-r-markdown.html#cb77-4" aria-hidden="true" tabindex="-1"></a><span class="fu">date</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;26/11/2021&quot;</span></span>
+<span id="cb77-5"><a href="reportes-con-r-markdown.html#cb77-5" aria-hidden="true" tabindex="-1"></a><span class="fu">output</span><span class="kw">:</span><span class="at"> </span></span>
+<span id="cb77-6"><a href="reportes-con-r-markdown.html#cb77-6" aria-hidden="true" tabindex="-1"></a><span class="at">  </span><span class="fu">html_document</span><span class="kw">:</span></span>
+<span id="cb77-7"><a href="reportes-con-r-markdown.html#cb77-7" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb77-8"><a href="reportes-con-r-markdown.html#cb77-8" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">toc_float</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb77-9"><a href="reportes-con-r-markdown.html#cb77-9" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">number_sections</span><span class="kw">:</span><span class="at"> </span><span class="ch">true</span></span>
+<span id="cb77-10"><a href="reportes-con-r-markdown.html#cb77-10" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">theme</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;yeti&quot;</span></span>
+<span id="cb77-11"><a href="reportes-con-r-markdown.html#cb77-11" aria-hidden="true" tabindex="-1"></a><span class="at">    </span><span class="fu">highlight</span><span class="kw">:</span><span class="at"> </span><span class="st">&quot;tango&quot;</span></span>
+<span id="cb77-12"><a href="reportes-con-r-markdown.html#cb77-12" aria-hidden="true" tabindex="-1"></a><span class="pp">---</span></span></code></pre></div>
+<p>Si deseas conocer todas las opciones de temas que <code>R Markdown</code> tiene disponible puedes escribir en consola o en un script de apoyo lo siguiente:</p>
+<div class="sourceCode" id="cb78"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb78-1"><a href="reportes-con-r-markdown.html#cb78-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">:::</span><span class="fu">themes</span>()</span></code></pre></div>
+<pre><code>##  [1] &quot;default&quot;   &quot;bootstrap&quot; &quot;cerulean&quot;  &quot;cosmo&quot;     &quot;darkly&quot;    &quot;flatly&quot;   
+##  [7] &quot;journal&quot;   &quot;lumen&quot;     &quot;paper&quot;     &quot;readable&quot;  &quot;sandstone&quot; &quot;simplex&quot;  
+## [13] &quot;spacelab&quot;  &quot;united&quot;    &quot;yeti&quot;</code></pre>
+<p>También podemos conocer las opciones de resaltado con:</p>
+<div class="sourceCode" id="cb80"><pre class="sourceCode r"><code class="sourceCode r"><span id="cb80-1"><a href="reportes-con-r-markdown.html#cb80-1" aria-hidden="true" tabindex="-1"></a>rmarkdown<span class="sc">:::</span><span class="fu">highlighters</span>()</span></code></pre></div>
+<pre><code>## [1] &quot;default&quot;    &quot;tango&quot;      &quot;pygments&quot;   &quot;kate&quot;       &quot;monochrome&quot;
+## [6] &quot;espresso&quot;   &quot;zenburn&quot;    &quot;haddock&quot;    &quot;breezedark&quot;</code></pre>
+<p>Por otro lado, <a href="https://cran.r-project.org/web/packages/ymlthis/vignettes/yaml-fieldguide.html">ésta página</a> contiene todos los argumentos que se pueden especificar en la sección de metadatos con <code>YAML</code>.</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="introducción-a-la-documentación.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="apps-con-shiny.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/clipboard.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-clipboard.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"whatsapp": false,
+"all": ["facebook", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"view": {
+"link": null,
+"text": null
+},
+"download": null,
+"search": {
+"engine": "fuse",
+"options": null
+},
+"toc": {
+"collapse": "subsection"
+},
+"toolbar": null,
+"position": "fixed"
+});
+});
+</script>
+
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+  (function () {
+    var script = document.createElement("script");
+    script.type = "text/javascript";
+    var src = "true";
+    if (src === "" || src === "true") src = "https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML";
+    if (location.protocol !== "file:")
+      if (/^https?:/.test(src))
+        src = src.replace(/^https?:/, '');
+    script.src = src;
+    document.getElementsByTagName("head")[0].appendChild(script);
+  })();
+</script>
+</body>
+
+</html>
