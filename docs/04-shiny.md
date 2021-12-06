@@ -4,6 +4,12 @@ output:
   html_document: default
 ---
 # Apps con Shiny
+
+## Diapositivas
+
+Puedes descargar las diapositivas del curso [aquí](https://drive.google.com/u/0/uc?id=1lSnZxaSVuuOb5ilQ1GsvsZG5qD7tqVGr&export=download)
+
+## Conociendo shiny
 Para comenzar, cargamos la librería de Shiny
 
 ```r

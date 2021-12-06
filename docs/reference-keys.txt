@@ -62,3 +62,6 @@ conociendo-paneles
 crear-una-aplicación-más-compleja
 personalizando-con-temas-de-bslib
 creando-temas-personalizados
+diapositivas
+diapositivas-1
+conociendo-shiny

@@ -8,6 +8,10 @@ output:
 
 ¿Qué es Git? Git es un software de control de versiones distribuido y desarrollado por Linus Torvalds, para optimizar el trabajo en proyecto que cuenten con un gran número de archivos.
 
+## Diapositivas
+
+Puedes descargar las diapositivas del curso [aquí](https://drive.google.com/u/0/uc?id=1VJrEJ3pFV3nwDJp-kphf0LCZ8UNAC3Bz&export=download)
+
 ## Instalación de Git
 
 ### Linux
